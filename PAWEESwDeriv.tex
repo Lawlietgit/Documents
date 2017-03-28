@@ -2536,7 +2536,7 @@ To calculate the core-part of the exchange-correlation force $\frac{\p E^{(\rcor
 \item For every atom $J$ and direction $\beta$, sum over $\left(\Psi_J^{(\rS,Z,D)}(\hs)+ \rcc\right) F_{J\beta}^{(R,\rP\ 1,\rxc,\rA,a,\rEES)}(\hs)$ on the $\pzp$ relevant points around $J$ to get the first term in Eq.\eqref{eq:dExccoredR}. $\sim$ $3N \pzp \sim N$.
 \item For every atom $J$ and direction $\beta$, calculate $F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs)$ only on the $\pzp$ points around $J$ by summing over the KS states $I$ given previously stored $Z_{IJ}^{(\rS,\rEES)}$ derivatives as in Eq.\eqref{eq:dExccoredRwhere}. $\sim$ $3 N \NKS \pzp \sim N^2$.
 \item For every atom $J$ and direction $\beta$, sum over $\phi_J^{(\rP\ 1,\rxc,\rA,\rEES)}(\hs)F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs)$ on only the $\pzp$ relevant points around $J$ to the get the second term in Eq.\eqref{eq:dExccoredR} . $\sim$ $3N \pzp \sim N$.
-\item For every atom $J$, calculate $\phi_J^{(\rP\ 2,\rxc,\rA,\rEES)}(\hs)$ by summing over $f$ as in Eq.\eqref{eq:dExccoredRwhere}. $\sim$ $N N_f \sim N$.
+\item For every atom $J$, calculate $\phi_J^{(\rP\ 2,\rxc,\rA,\rEES)}$ by summing over $f$ as in Eq.\eqref{eq:dExccoredRwhere}. $\sim$ $N N_f \sim N$.
 \item For every atom $J$ and direction $\beta$, sum over $\phi_J^{(\rP\ 2,\rxc,\rA,\rEES)}\frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb}$ given previously stored $Z_{J}^{(\rS,2,\rEES)}$ derivatives to get the third term in Eq.\eqref{eq:dExccoredR}. $\sim$ $3N (p+\zeta)^3 \sim N$.
 \item For every atom $J$ and direction $\beta$, calculate $F_{J\beta}^{(R,\rcore,\rxc,\rB,\rEES)}(\hs)$ as in Eq.\eqref{eq:dExccoredRwhere} only on the $\pzn$ points around $J$ in $3 N \pzn \sim N$.
 \item For every atom $J$ and direction $\beta$, sum over $n^{(\rS,D)}(\hat \bs) F_{J\beta}^{(R,\rcore,\rxc,\rB,\rEES)}(\hs)$ on the $\pzn$ points around $J$ to get the last term in Eq.\eqref{eq:dExccoredR}. $3 N \pzn \sim N$.
@@ -3046,10 +3046,10 @@ The self core-core part derivative takes form as
 \frac{\p E^{(\rP\ l,\rP\ l',\rH,\rshort,\rself,\rEES)}}{\p \psigsc}
 &= \frac{\p }{\p \psigsc} \frac{e^2}{2}\sum_{f,f'} w_f w_{f'} \sum_J n_J^{(\rP\ l,\rEES)}(\br_f) n_J^{(\rP,l',\rEES)}(\br_{f'})\\
 &\times \frac{\rerfc(\alpha|\br_f-\br_{f'}|)-\rerfc(\delta \Rpc^{-1}|\br_f-\br_{f'}|)}{|\br_f-\br_{f'}|}\\
-&= \sum_{f,f'} w_f w_{f'} \sum_J \frac{\p n_J^{(\rP\ l,\rEES)}(\br_f) }{\p \psigsc}n_J^{(\rP,l',\rEES)}(\br_{f}')\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
+&= \sum_{f,f'} w_f w_{f'} \sum_J \frac{\p n_J^{(\rP\ l,\rEES)}(\br_f) }{\p \psigsc}n_J^{(\rP,l',\rEES)}(\br_{f'})\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
 &+ \sum_{f,f'} w_f w_{f'} \sum_J \frac{\p n_J^{(\rP,l',\rEES)}(\br_{f'}) }{\p \psigsc}n_J^{(\rP\ l,\rEES)}(\br_{f})\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
-&= \sum_{f,f'} w_f w_{f'} \sum_J \frac{\p n_J^{(\rP\ l,\rEES)}(\br_f) }{\p \psigsc}n_J^{(\rP,l',\rEES)}(\br_{f}')\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
-&+ \sum_{f,f'} w_f w_{f'} \sum_J \frac{\p n_J^{(\rP,l',\rEES)}(\br_f) }{\p \psigsc}n_J^{(\rP\ l,\rEES)}(\br_{f}')\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
+&= \sum_{f,f'} w_f w_{f'} \sum_J \frac{\p n_J^{(\rP\ l,\rEES)}(\br_f) }{\p \psigsc}n_J^{(\rP,l',\rEES)}(\br_{f'})\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
+&+ \sum_{f,f'} w_f w_{f'} \sum_J \frac{\p n_J^{(\rP,l',\rEES)}(\br_f) }{\p \psigsc}n_J^{(\rP\ l,\rEES)}(\br_{f'})\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
 &= \sum_{f} w_f \sum_J \frac{\p n_J^{(\rP\ l,\rEES)}(\br_f) }{\p \psigsc}\phi_J^{(\rP\ l',\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) \\
 &+ \sum_{f} w_f \sum_J \frac{\p n_J^{(\rP,l',\rEES)}(\br_f) }{\p \psigsc}\phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) \\
 \end{split}
@@ -3068,7 +3068,7 @@ where
 \begin{equation}
 \begin{split}
 \phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'})&=\frac{\rerfc(\alpha|\br_f-\br_{f'}|)-\rerfc(\delta \Rpc^{-1}|\br_f-\br_{f'}|)}{|\br_f-\br_{f'}|}\\
-\phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) & = \frac{e^2}{2}\sum_{f'} w_f' n_J^{(\rP\ l,\rEES)}(\br_{f}')\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
+\phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) & = \frac{e^2}{2}\sum_{f'} w_{f'} n_J^{(\rP\ l,\rEES)}(\br_{f'})\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
 \phi_J^{(\rcore,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) &= 2\sum_{l=1}^2\phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f)
 \end{split}
 \end{equation}
@@ -3269,7 +3269,7 @@ The self core-core part derivative takes form as
 \frac{\p E^{(\rP\ l,\rP\ l',\rH,\rshort,\rself,\rEES)}}{\p \RJb}
 &= \frac{\p }{\p \RJb} \frac{e^2}{2}\sum_{f,f'} w_f w_{f'} \sum_{J'} n_{J'}^{(\rP\ l,\rEES)}(\br_f) n_{J'}^{(\rP,l',\rEES)}(\br_{f'})\\
 &\times \frac{\rerfc(\alpha|\br_f-\br_{f'}|)-\rerfc(\delta \Rpc^{-1}|\br_f-\br_{f'}|)}{|\br_f-\br_{f'}|}\\
-&= \sum_{f,f'} w_f w_{f'} \frac{\p n_J^{(\rP\ l,\rEES)}(\br_f) }{\p \RJb}n_J^{(\rP,l',\rEES)}(\br_{f}')\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
+&= \sum_{f,f'} w_f w_{f'} \frac{\p n_J^{(\rP\ l,\rEES)}(\br_f) }{\p \RJb}n_J^{(\rP,l',\rEES)}(\br_{f'})\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
 &+ \sum_{f,f'} w_f w_{f'} \frac{\p n_J^{(\rP,l',\rEES)}(\br_{f'}) }{\p \RJb}n_J^{(\rP\ l,\rEES)}(\br_{f})\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
 &= \sum_{f} w_f \frac{\p n_J^{(\rP\ l,\rEES)}(\br_f) }{\p \RJb}\phi_J^{(\rH,\rshort,\rself,l')}(\br_f) \\
 &+ \sum_{f} w_f \frac{\p n_J^{(\rP,l',\rEES)}(\br_f) }{\p \RJb}\phi_J^{(\rH,\rshort,\rself,l)}(\br_f) \\
@@ -3279,7 +3279,7 @@ The self core-core part derivative takes form as
 where
 \begin{equation}
 \begin{split}
-\phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) & = \frac{e^2}{2}\sum_{f'} w_f' n_J^{(\rP\ l,\rEES)}(\br_{f}')\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
+\phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) & = \frac{e^2}{2}\sum_{f'} w_{f'} n_J^{(\rP\ l,\rEES)}(\br_{f'})\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
 \end{split}
 \end{equation}
 is already calculated and used in the $\psigsc$ derivatives for the same self core-core short range Hartree term.
@@ -3501,7 +3501,7 @@ The $\RJb$ derivative of the long range Hartree energy takes a symmetric form as
 &= \frac{e^2}{2V}  \sum_{l=1}^2 \sum_{\bg \neq 0}^{\Gc} \ol \chi^{(\rlong)} (\bg) \frac{\p \ol{n}^{(\rP\ l,M,\rEES)*}(\bg)}{\p \RJb}\ol{n}^{(\rtot,\rEES)}(\bg) \\
 &+ \frac{e^2}{2V}  \sum_{l=1}^2 \sum_{\bg \neq 0}^{\Gc} \ol \chi^{(\rlong)} (\bg) \frac{\p \ol{n}^{(\rP\ l,M,\rEES)}(\bg)}{\p \RJb}\ol{n}^{(\rtot,\rEES)*}(\bg) \\
 &= \frac{e^2}{V}  \sum_{l=1}^2 \sum_{\bg \neq 0}^{\Gc} \ol \chi^{(\rlong)} (\bg) \frac{\p \ol{n}^{(\rP\ l,M,\rEES)}(\bg)}{\p \RJb}\ol{n}^{(\rtot,\rEES)*}(\bg) \\
-&=\sum_{\hsJp}^{\pzp} \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right) F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,1,a,\rEES)}(\hs) \\
+&=\sum_{\hsJp}^{\pzp} \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right) F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,a,\rEES)}(\hs) \\
 &+ \sum_{\hsJp}^{\pzp} \phi_J^{(\rP\ 1,\rtot,\rH,\rlong,\rA,\rEES)}(\hs)F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \\
 &+ \sum_{\hsJn}^{\pzn} \phi^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\hs) F_{J\beta}^{(R,\rP\ 1,\rEES)}(\hs) \\
 &+ \sum_{\hsJn}^{\pzn} \phi^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\hs) \left[F_{J\beta}^{(R,\rS,Z,2,\rEES)}(\hs)+ F_{J\beta}^{(R,\rP\ 2,\rEES)}(\hs)\right]\\
@@ -3521,7 +3521,7 @@ where
 &= \sum_{\bk} \phi^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\hs) \Mn(\bu_{Jf}-\hat \bs) \big|_{\hat \bs=\bl_{Jf}-\bk} \hsinJn\\
 \phi_J^{(\rP\ 1,\rtot,\rH,\rlong,\rA,\rEES)}(\hs) &= \sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\br_f)  \sum_{\bk} \Mp(\bu_{Jf}-\hat \bs) \delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJp \\
 F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) &= \sum_I \frac{\p Z_{IJ}^{(\rS,\rEES)}}{\p \RJb}\Psi_I^{(\rS,\rD)*}(\hat \bs) + \rcc \hsinJp\\
-F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,1,a,\rEES)}(\hs) &= \sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\br_f) \sum_{\bk} \frac{\p \Mp(\bu_{Jf}-\hat \bs)}{\p \RJb} \delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJp \\
+F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,a,\rEES)}(\hs) &= \sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\br_f) \sum_{\bk} \frac{\p \Mp(\bu_{Jf}-\hat \bs)}{\p \RJb} \delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJp \\
 F_{J\beta}^{(R,\rS,Z,2,\rEES)}(\hs) &= \sum_f w_f  \Delta p^2(\br_f)\frac{\p Z_{IJ}^{(\rS,2,\rEES)}}{\p \RJb} \sum_{\bk}  \Mn(\bu_{Jf}-\hat \bs)\delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJn \\
 F_{J\beta}^{(R,\rP\ 2,\rEES)}(\hs) &= \sum_f w_f  n_J^{(\rP\ 2,\rEES)}(\br_f) \sum_{\bk}  \frac{\p \Mn(\bu_{Jf}-\hat \bs)}{\p \RJb}\delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJn \\
 \end{split}
@@ -3566,15 +3566,16 @@ u_{\al,Jf} &=& N_\al \bh_\al^{-1}\cdot (\bR_J+\br_f) = l_{\al,Jf} + f^{(\mathrm{
 \begin{eqnarray}
 \label{gr:SpEES}
 S^{(\rCo,\Psi,\rEES)}(\hat \bs)
-&=&\sum_J Q_J \sum_{\bk}^{p^3} \Mp(\bu_{J}-\hat \bs)\delta_{\hat \bs,\bl_J-\bk} \hsinpEES\\
+&=&\sum_J Q_J \sum_{\bk} \Mp(\bu_{J}-\hat \bs)\delta_{\hat \bs,\bl_J-\bk} \hsinpEES\\
 \label{gr:SnEES}
 S^{(\rCo,n,\rEES)}(\hat \bs)
-&=&\sum_J Q_J \sum_{\bk}^{p^3} \Mn(\bu_{J}-\hat \bs)\delta_{\hat \bs,\bl_J-\bk} \hsinnEES
+&=&\sum_J Q_J \sum_{\bk} \Mn(\bu_{J}-\hat \bs)\delta_{\hat \bs,\bl_J-\bk} \hsinnEES
 \end{eqnarray}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{The smooth density and smooth KS states}
 \begin{eqnarray}
+\label{gr:PsiSs}
 \Psi_I^{(\rS)}(\hs) &=&\frac{1}{\sqrt{V}}\sum_\bg^{\Gc/2} \overline{\Psi}^{(\rS)}_I(\bg)  \re^{i \bg_c^{(n)}\cdot \hs} = \frac{1}{\sqrt{V}} \mathrm{FFT}^{(n,+)}\left[\ol \Psi_I^{(\rS)}(\bg), \hGc\right] \hsinn\\
 n^{(\rS)}(\hat \bs)
 &=& \sum_I \left|\Psi_I^{(\rS)}(\hat \bs) \right|^2 \hsinn\\
@@ -3593,6 +3594,7 @@ n^{(\rS)}(\hat \bs)
 \Psi_I^{(\rS,D,\Delta p)}(\hs)
 &=&\frac{1}{\sqrt{V}}\IFFTpEES \left[ g^2 \wt {\Delta p} (\bg) \psigs \Dpg ,\hGc\right] \hsinpEES\\
 \Psi_I^{(\rS,D)}(\hat \bs) &=& \frac{1}{\sqrt V} \IFFTpEES \left[  \Dpg \psigs,\hGc \right] \hsinpEES\\
+\label{gr:nSDs}
 n^{(\rS,D)}(\hs) &=& \frac{1}{V} \IFFTnEES \left[ \ol n^{(\rS)}(\bg) D^{(n)}_p(\bg) ,\Gc\right] \hsinnEES
 \end{eqnarray}
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -3619,6 +3621,7 @@ n_J^{(\rP\ 1,\rEES)}(\br_f)
 n_J^{(\rP\ 2,\rEES)}(\br_f)&=&\Delta p^2(\br-\bR_J) Z_J^{(\rS,2,\rEES)}\\
 n^{(\rtot,\rEES)}_J(\br_f)
 &=& n^{(\rS,\rEES)}_J(\br_f) + n^{(\rP\ 1,\rEES)}_J(\br_f) +n^{(\rP\ 2,\rEES)}_J(\br_f)\\
+\label{gr:ncorerf}
 n^{(\rcore,\rEES)}_J(\br_f)
 &=& n^{(\rP\ 1,\rEES)}_J(\br_f) +n^{(\rP\ 2,\rEES)}_J(\br_f)\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3639,6 +3642,7 @@ n^{(\rP\ l,M,\rEES)}(\hat \bs) &=& \sum_J \sum_{\hspJn}^{\pzn} n_J^{(\rP\ l,M,\r
 \begin{eqnarray}
 \label{phi:fshortNN}
 \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f) &=& \sum_{<K>_{J,\rNN}}eQ_K\frac{\rerfc(\alpha|\br_f-\bR_{KJ}|)}{|\br_f-\bR_{KJ}|}\\
+\label{phi:scoreSHshortchiD}
 \phi^{(\rcore,\rS,\rH,\rshort,\chi,D)}(\hs) &=&\frac{e^2}{V} \IFFTnEES\left[\Dng \ol n^{(\rS)}(\bg)\ol \chi^{(\rshort)}(\bg),\Gc\right] \hsinnEES \\
 \label{phi:fSchiEES}
 \phi_J^{(\rcore,\rS,\rH,\rshort,\chi,D,\rEES)}(\br_f) &=&\sum_{\bk} \phi^{(\rcore,\rS,\rH,\rshort,\chi,D)}(\hs)\Mn(\bu_{Jf}-\hat \bs)\big|_{\hat \bs=\bl_{Jf}-\bk} \hsinJn \nonumber\\
@@ -3768,6 +3772,7 @@ S_I^{(W,\rS,Z,\Psi,\rEES)}(\hs) &=& \sum_J Z_{IJ} ^{(\rS,\rEES)} \sum_{\bk} \Mp(
 \label{phi:phiSloc}
 \phi_J^{(\rP\ 1,\rlo,\rshort,\rEES)}(\hs) &=& -\sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f)  \sum_{\bk} \Mp(\bu_{Jf}-\hat \bs)\delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJp \nonumber\\
 &\ &\\
+\label{phi:PAW2locshort}
 \phi_J^{(\rP\ 2,\rlo,\rshort)} 
 &=& - \sum_f w_f \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f)\Delta p^2(\br_f)
 \end{eqnarray}
@@ -3788,9 +3793,11 @@ S_I^{(W,\rS,Z,\Psi,\rEES)}(\hs) &=& \sum_J Z_{IJ} ^{(\rS,\rEES)} \sum_{\bk} \Mp(
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \underline{Core exchange correlation energy:}
 \begin{eqnarray}
+\label{phi:sPAW1xcA}
 \phi_J^{(\rP\ 1,\rxc,\rA,\rEES)}(\hs) &=& \sum_f w_f \Delta p(\br_f) \mu_{\rxc}\left(n_J^{(\rtot,\rEES)}(\br_f)\right)  \sum_{\bk} \Mp(\bu_{Jf}-\hat \bs)\delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJp\nonumber\\
 &\ &\\
-\phi_J^{(\rP\ 2,\rxc,\rA,\rEES)}(\hat \bs) &=& \sum_f w_f \Delta p^2(\br_f) \mu_{\rxc}\left(n_J^{(\rtot,\rEES)}(\br_f)\right)  \\
+\label{phi:PAW2xcA}
+\phi_J^{(\rP\ 2,\rxc,\rA,\rEES)} &=& \sum_f w_f \Delta p^2(\br_f) \mu_{\rxc}\left(n_J^{(\rtot,\rEES)}(\br_f)\right)  \\
 \phi_J^{(W,\rcore,\rxc,\rB,\rEES)}(\hs)&=&  \sum_{\bk} \sum_f w_f \left[\mu_{\rxc} \left(  n^{(\rtot,\rEES)}_J(\br_f)  \right) -\mu_{\rxc}\left(n_J^{(\rS,\rEES)}(\br_f)\right)\right] \Mn(\bu_{Jf}-\hat \bs)\delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber \\
  &&\hspace*{3.1 in} \hsinJn \\
 \phi^{(W,\rcore,\rxc,\rsum,\rB,\rEES)}(\hs)
@@ -3809,8 +3816,10 @@ S_I^{(W,\rS,Z,\Psi,\rEES)}(\hs) &=& \sum_J Z_{IJ} ^{(\rS,\rEES)} \sum_{\bk} \Mp(
 \ReE \phi_J^{(\rcore,\rS,\rH,\rshort,\chi,D,\rEES)}(\br_f) &=&\sum_{\bk} \phi^{(\rcore,\rS,\rH,\rshort,\chi,D)}(\hs)\Mn(\bu_{Jf}-\hat \bs)\big|_{\hat \bs=\bl_{Jf}-\bk} \hsinJn \nonumber\\
 \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{phi:sPAW1SHshortAa}
 \phi_J^{(\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs) &=& \sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rS,\rH,\rshort,\chi,D,\rEES)}(\br_f) \sum_{\bk} \Mp(\bu_{Jf}-\hat \bs)\delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber\\
 &\ &\hspace*{2.5in}\hsinJp \\
+\label{phi:PAW2SHshortA}
 \phi_J^{(\rP\ 2,\rS,\rH,\rshort,\rA,\rEES)}  &=& \sum_f w_f \Delta p^2(\br_f) \phi_J^{(\rcore,\rS,\rH,\rshort,\chi,D,\rEES)}(\br_f) \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \phi_J^{(W,\rcore,\rS,\rH,\rshort,\rB,\rEES)}(\hs) & =& \sum_f w_f n_J^{(\rcore,\rEES)}(\br_f) \sum_{\bk} \Mn(\bu_{Jf}-\hat \bs)\delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJn\nonumber\\
@@ -3826,24 +3835,30 @@ S_I^{(W,\rS,Z,\Psi,\rEES)}(\hs) &=& \sum_J Z_{IJ} ^{(\rS,\rEES)} \sum_{\bk} \Mp(
 
 \underline{Short range core-core Hartree energy:}
 \begin{eqnarray}
+\ReE \phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rNN)}(\br_f,\br_{f'}) &=& \frac{\rerfc(\alpha|\br_f-\br_{f'}-\bR_{JK}|)}{|\br_f-\br_{f'}-\bR_{JK}|} \\
+\ReE \phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'})&=&\frac{\rerfc(\alpha|\br_f-\br_{f'}|)-\rerfc(\delta \Rpc^{-1}|\br_f-\br_{f'}|)}{|\br_f-\br_{f'}|} \\
 \phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rNN,\rEES)}(\br_f) &=& \frac{e^2}{2}\sum_{<K \neq J>_\rNN}\sum_{f'}w_{f'}n_K^{(\rP\ l,\rEES)}(\br_{f'}) \phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rNN)}(\br_f,\br_{f'}) \\
-\phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) & =& \frac{e^2}{2}\sum_{f'} w_f' n_J^{(\rP\ l,\rEES)}(\br_{f}')\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
+\phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) & =& \frac{e^2}{2}\sum_{f'} w_{f'} n_J^{(\rP\ l,\rEES)}(\br_{f'})\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{phi:fHshortl}
 \phi_J^{(\rcore,\rcore,\rH,\rshort,\rEES)}(\br_f) &=& 2\sum_{l=1}^2\left[\phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rNN,\rEES)}(\br_f) + \phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) \right] \nonumber\\
 \\
+\label{phi:sPAW1coreHshort}
 \phi_J^{(\rP\ 1,\rcore,\rH,\rshort,\rEES)}(\hs) &=& \sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rcore,\rH,\rshort,\rEES)}(\br_f) \sum_{\bk} \Mp(\bu_{Jf}-\hat \bs)\delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber \\
 &\ &\hspace*{2.4in} \hsinJp \\
+\label{phi:PAW2coreHshort}
 \phi_J^{(\rP\ 2,\rcore,\rH,\rshort,\rEES)} &=& \sum_f w_f \Delta p^2(\br_f) \phi_J^{(\rcore,\rcore,\rH,\rshort,\rEES)}(\br_f) 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{eqnarray}
 
 \underline{Long range core-tot Hartree energy:}
 \begin{eqnarray}
+\label{phi:scoretotHlong}
 \phi^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\hs)&=&\frac{e^2}{V} \IFFTniEES \left[\ol \chi^{(\rlong)}(\bg)  \ol n^{(\rtot,\rEES)*}(\bg) D_p^{(n)}(\bg),\Gc\right] \hsinnEES \\
 \label{phi:fHlongAD}
 \phi_J^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\br_f) &=& \sum_{\bk} \phi^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\hs) \Mn(\bu_{Jf}-\hat \bs) \big|_{\hat \bs=\bl_{Jf}-\bk} \hsinJn \nonumber \\
 \\
+\label{phi:sPAW1titHlongA}
 \phi_J^{(\rP\ 1,\rtot,\rH,\rlong,\rA,\rEES)}(\hs) &=& \sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\br_f)  \sum_{\bk} \Mp(\bu_{Jf}-\hat \bs) \delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber\\
 &\ &\hspace*{2.6in} \hsinJp \\
 \phi_J^{(\rP\ 2,\rtot,\rH,\rlong,\rA,\rEES)}(\hs) &=& \sum_f w_f \Delta p^2(\br_f) \phi^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\hs) \sum_{\bk}  M_p^{(3,n)}(\bu_{Jf}-\hat \bs)\delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber\\
@@ -4330,7 +4345,7 @@ where
 &\ \ \ \ + \phi^{(W,\rS,\rS,\rH,\rcomb,\chi)}(\hs) + \phi^{(W,\rcore,\rS,\rH,\rshort,\chi,D,\rB,\rEES)}(\hs) \\
 \end{split}
 \end{equation}
-
+and $\ReE \Psi_{I}^{(\rS)}(\hat \bs)$ is defined in Eq.\eqref{gr:PsiSs}.\\
 
 Use the definitions in
 \begin{enumerate}
@@ -4368,11 +4383,11 @@ where the grouped $\bg$-space KS potential of the first 5 terms is
 where
 \begin{enumerate}
 \item \ReP $\Dng$, $\ol \chi(\bg)$, $\ol \chi^{(\rshort)}(\bg)$, $\ol \chi^{(\rlong)}(\bg)$ are precomputable terms as in Eq.\eqref{terms:pre}.
-\item \ReE $\ol S^{(\rCo,n,\rEES)}(\bg)$ is defined in Eq.\eqref{gr:SnEES}
-\item \ReE $\overline{n}^{(\rS)}(\bg) $ is defined in Eq.\eqref{gr:nSg}
-\item \ReW $\ol \phi^{(W,\rcore,\rxc,\rB,\rEES)}(\bg)$ is defined in Eq.\eqref{phi:phigxcoreB}
-\item \ReE $\ol{n}^{(\rcore,\rEES)}(\bg)$ is defined in Eq.\eqref{gr:ngPAWlMEES}
-\item \ReW $\ol \phi^{(W,\rcore,\rS,\rH,\rshort,\rsum,\rB,\rEES)}(\bg)$ is defined in Eq.\eqref{phi:phigHshortSlB}
+\item \ReE $\ol S^{(\rCo,n,\rEES)}(\bg)$ is defined in Eq.\eqref{gr:SnEES}.
+\item \ReE $\overline{n}^{(\rS)}(\bg) $ is defined in Eq.\eqref{gr:nSg}.
+\item \ReW $\ol \phi^{(W,\rcore,\rxc,\rB,\rEES)}(\bg)$ is defined in Eq.\eqref{phi:phigxcoreB}.
+\item \ReE $\ol{n}^{(\rcore,\rEES)}(\bg)$ is defined in Eq.\eqref{gr:ngPAWlMEES}.
+\item \ReW $\ol \phi^{(W,\rcore,\rS,\rH,\rshort,\rsum,\rB,\rEES)}(\bg)$ is defined in Eq.\eqref{phi:phigHshortSlB}.
 \end{enumerate}
 
 
@@ -4388,7 +4403,7 @@ Connecting back to Eq.\eqref{eq:groupdEdpgen} through Eq.\eqref{eq:groupdEdpgenp
 
 where
 \begin{enumerate}
-\item \ReWG $\phi^{(W,\rgr,n)}(\hs)$ is defined in Eq.\eqref{gr:A1ns}.
+\item \ReWG $A_1^{(n)}(\hs)$ is defined in Eq.\eqref{gr:A1ns}.
 \item \ReWG $ A_1^{(\Psi,\rEES)}(\hs)$ is defined in  Eq.\eqref{gr:A1pEES}
 \item \ReWG $A_2^{(\Psi,\rEES)}(\hs) $ is defined in Eq.\eqref{gr:groupedFDPsi}
 \end{enumerate}
@@ -4410,10 +4425,13 @@ We will label these terms when they appear later in the document as $\ReR$.
 
 \subsection{The ``$Z$'' forces}\label{Zforces}
 \begin{eqnarray}
+\label{gr:dZSdR}
 \frac{\p Z_{IJ}^{(\rS,\rEES)}}{\p \RJb}
 &=& \sum_{\bk} \frac{\p \Mp(\bu_{J}-\hat \bs)}{\p \RJb}\Psi_I^{(\rS,D,\tilde p)}(\hs)\big|_{\hat \bs=\bl_J-\bk} \hsinJpzr \\
+\label{gr:dZKEdR}
 \frac{\p Z_{IJ}^{(\rKE,\rEES)}}{\p \RJb}
 &=& \sum_{\bk} \frac{\p \Mp(\bu_{J}-\hat \bs)}{\p \RJb}\Psi_I^{(\rS,D,\Delta p)}(\hs)\big|_{\hat \bs=\bl_J-\bk} \hsinJpzr \\
+\label{gr:dZS2dR}
 \frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} 
 &=& \sum_I \left[\frac{\p Z_{IJ}^{(\rS,\rEES)}}{\p \RJb}Z_{IJ}^{(\rS,\rEES)*}+\rcc\right] \hsinJpzr 
 \end{eqnarray}
@@ -4421,13 +4439,25 @@ We will label these terms when they appear later in the document as $\ReR$.
 
 \subsection{KS potential-like functions and their $\RJb$ derivatives}
 
+
+
+\underline{Smooth combined local electron-ion interaction:}
+\begin{eqnarray}
+\label{phi:sRSloc}
+\phi^{(R,\rS,\rlo,\rcomb,\chi,D)}(\hs)
+&=& -\frac{e}{V} \IFFTnEES \left[\frac{4\pi}{g^2} \ol{n}^{(\rS)}(\bg) \Dng, \Gc \right] \hsinn
+\end{eqnarray}
+
 \underline{Core short range local electron-ion interaction:}
 \begin{eqnarray}
+\label{ReEphi:rfcorelocshortNN}
 \ReE \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f) &=& \sum_{<K>_{J,\rNN}}eQ_K\frac{\rerfc(\alpha|\br_f-\bR_{KJ}|)}{|\br_f-\bR_{KJ}|}\\
 \label{dphidR:flocshortNN}
 \frac{\p \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f)}{\p \RJb}
 &=& 2\sum_{<K\neq J>_{\rNN}}eQ_K \left(\frac{2\al}{\sqrt{\pi}} \right)\frac{\left(r_{f,\beta}-R_{KJ,\beta}\right)}{|\br_f-\bR_{KJ}|}\re^{-(\alpha|\br_f-\bR_{KJ}|)^2}\\
 \label{phi:locshort2deltap}
+\ReW \phi_J^{(\rP\ 1,\rlo,\rshort,\rEES)}(\hs) &=& -\sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f)  \sum_{\bk} \Mp(\bu_{Jf}-\hat \bs)\delta_{\hat \bs,\bl_{Jf}-\bk}\nonumber\\
+&\ & \hspace*{2.5in}\hsinJp \\
 \ReW \phi_J^{(\rP\ 2,\rlo,\rshort)} 
 &=& - \sum_f w_f \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f)\Delta p^2(\br_f) 
 \end{eqnarray}
@@ -4442,7 +4472,7 @@ We will label these terms when they appear later in the document as $\ReR$.
 \ReW \phi_J^{(\rcore,\rlo,\rlong,\chi,S,D,\rEES)}(\br_f) &=& \sum_{\bk} \phi^{(\rcore,\rlo,\rlong,\chi,S,D,\rEES)}(\hs) \Mn(\bu_{Jf}-\hat \bs) \big|_{\hat \bs=\bl_{Jf}-\bk} \hsinJn \nonumber \\ \\
 \ReW \phi_J^{(\rP\ 1,\rlo,\rlong,\rEES)}(\hs) &=& \sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rlo,\rlong,\chi,S,D,\rEES)}(\br_f)  \sum_{\bk} \Mp(\bu_{Jf}-\hat \bs) \delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber\\
 &&\hspace*{2.5 in} \hsinJp  \\
-\label{phi:chiDEES}
+\label{phi:sRcoreloclongB}
 \phi^{(R,\rcore,\rlo,\rlong,\chi,D,\rB,\rEES)}(\hs) &=& -\frac{e}{V}\IFFTnEES\left[\ol \chi^{(\rlong)}(\bg) \ol n^{(\rcore,\rEES)}(\bg) \Dng, \Gc\right]
 \end{eqnarray}
 
@@ -4465,8 +4495,10 @@ We will label these terms when they appear later in the document as $\ReR$.
 
 \underline{Core-core Hartree short energy:}
 \begin{eqnarray}
+\label{ReEFJb:sRPAW1SHshortAa}
+\ReE \phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rNN)}(\br_f,\br_{f'}) &=& \frac{\rerfc(\alpha|\br_f-\br_{f'}-\bR_{JK}|)}{|\br_f-\br_{f'}-\bR_{JK}|} \\
 \ReW \phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rNN,\rEES)}(\br_f) &=& \frac{e^2}{2}\sum_{<K \neq J>_\rNN}\sum_{f'}w_{f'}n_K^{(\rP\ l,\rEES)}(\br_{f'}) \phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rNN)}(\br_f,\br_{f'}) \\
-\ReW \phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) & =& \frac{e^2}{2}\sum_{f'} w_f' n_J^{(\rP\ l,\rEES)}(\br_{f}')\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
+\ReW \phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) & =& \frac{e^2}{2}\sum_{f'} w_{f'} n_J^{(\rP\ l,\rEES)}(\br_{f'})\phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rself)}(\br_f,\br_{f'}) \\
 \label{phi:fHshortlReW}
 \ReW \phi_J^{(\rcore,\rcore,\rH,\rshort,\rEES)}(\br_f) &=& 2\sum_{l=1}^2\left[\phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rNN,\rEES)}(\br_f) + \phi_J^{(\rP\ l,\rcore,\rH,\rshort,\rself,\rEES)}(\br_f) \right] \nonumber\\
 \\
@@ -4494,52 +4526,65 @@ We will label these terms when they appear later in the document as $\ReR$.
 \begin{eqnarray}
 F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) 
 &=& \sum_I \frac{\p Z_{IJ}^{(\rS,\rEES)}}{\p \RJb}\Psi_I^{(\rS,\rD)*}(\hat \bs) + \rcc \hsinJp\\
+\label{gr:FRPAW1}
 F_{J\beta}^{(R,\rP\ 1,\rEES)}(\hs) &=& \sum_f w_f  n_J^{(\rP\ 1,\rEES)}(\br_f) \sum_{\bk}  \frac{\p \Mn(\bu_{Jf}-\hat \bs)}{\p \RJb}\delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJn \nonumber\\ \\
+\label{gr:FRSZ2}
 F_{J\beta}^{(R,\rS,Z,2,\rEES)}(\hs) &=& \sum_f w_f  \Delta p^2(\br_f)\frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \sum_{\bk}  \Mn(\bu_{Jf}-\hat \bs)\delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJn \nonumber\\ \\
+\label{gr:FRPAW2}
 F_{J\beta}^{(R,\rP\ 2,\rEES)}(\hs) &=& \sum_f w_f  n_J^{(\rP\ 2,\rEES)}(\br_f) \sum_{\bk}  \frac{\p \Mn(\bu_{Jf}-\hat \bs)}{\p \RJb}\delta_{\hat \bs,\bl_{Jf}-\bk}\hsinJn \nonumber\\ \\
+\label{gr:FRcoreSHshortB}
 F_{J\beta}^{(R,\rcore,\rS,\rH,\rshort,\rB,\rEES)}(\hs)
 &=&\sum_f \sum_{\bk}w_f  n_J^{(\rcore,\rEES)}(\br_f) \frac{\p \Mn(\bu_{Jf}-\hat \bs)}{\p \RJb}\delta_{\hat \bs,\bl_{Jf}-\bk} \hsinJn \nonumber\\
 \end{eqnarray}
 
-
 \underline{Core local short electron-ion interaction:}
 \begin{eqnarray}
+\label{FJb:sRPAW1locshortAa}
 F_{J\beta}^{(R,\rP\ 1,\rlo,\rshort,\rA,a,\rEES)}(\hs)
 &=& -\sum_{\bk}\sum_f  \frac{\p \Mp(\bu_{Jf}-\hat \bs)}{\p \RJb}w_f \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f)\Delta p(\br_f)\delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber\\
-&\ &\hspace*{2.3in} \hsinJp
+&\ &\hspace*{2.3in} \hsinJp \\
+\ReE \eqref{ReEphi:rfcorelocshortNN}\ \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f) \nonumber 
 \end{eqnarray}
 
 
 \underline{Core local long electron-ion interaction:}
 \begin{eqnarray}
+\label{FJb:sRPAW1loclongAa}
 F_{J\beta}^{(R,\rP\ 1,\rlo,\rlong,\rA,a,\rEES)}(\hs) &=& \sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rlo,\rlong,\chi,S,D,\rEES)}(\br_f) \sum_{\bk} \frac{\p \Mp(\bu_{Jf}-\hat \bs)}{\p \RJb} \delta_{\hat \bs,\bl_{Jf}-\bk}\nonumber\\
 &\ &\hspace*{2.3in} \hsinJp
 \end{eqnarray}
 
 \underline{Core exchange-correlation energy:}
 \begin{eqnarray}
+\label{FJb:sRPAW1xcAa}
 F_{J\beta}^{(R,\rP\ 1,\rxc,\rA,a,\rEES)}(\hs)
 &=&\sum_{\bk}\sum_f  \frac{\p \Mp(\bu_{Jf}-\hat \bs)}{\p \RJb}w_f \mu_{\rxc} \left( n^{(\rtot,\rEES)}_J(\br_f)  \right)\Delta p(\br_f)\delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber\\
 &\ &\hspace*{2.5in} \hsinJp \\
+\label{gr:FRxcB}
 F_{J\beta}^{(R,\rcore,\rxc,\rB,\rEES)}(\hs)&=&\sum_f w_f \left[\mu_{\rxc} \left(  n^{(\rtot,\rEES)}_J(\br_f)  \right) - \mu_{\rxc} \left(  n^{(\rS,\rEES)}_J(\br_f)  \right) \right] \nonumber \\
 && \hspace*{0.5in} \times \left[\sum_{\bk} \frac{\p \Mn(\bu_{Jf}-\hat \bs)}{\p \RJb}\delta_{\hat \bs,\bl_{Jf}-\bk} \right]\hsinJn
 \end{eqnarray}
 
 \underline{Core-smooth and core-core Hartree short energy:}
 \begin{eqnarray}
+\label{FJb:sRPAW1SHshortAa}
 F_{J\beta}^{(R,\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs)
 &=& \sum_{\bk}\sum_f  \frac{\p \Mp(\bu_{Jf}-\hat \bs)}{\p \RJb}w_f \phi_J^{(\rcore,\rS,\rH,\rshort,\chi,D,\rEES)}(\br_f)\Delta p(\br_f)\delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber\\
 &\ & \hspace*{2in} \hsinJp \\
+\label{FJb:sRPAW1coreHshortAa}
 F_{J\beta}^{(R,\rP\ 1,\rcore,\rH,\rshort,\rA,a,\rEES)}(\hs)
 &=&\sum_{\bk}\sum_f  \frac{\p \Mp(\bu_{Jf}-\hat \bs)}{\p \RJb}w_f \phi_J^{(\rcore,\rcore,\rH,\rshort,\rEES)}(\br_f)  \Delta p(\br_f)\delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber\\
 &\ & \hspace*{2in} \hsinJp \\
 F_{J\beta}^{(R,\rP\ l,\rcore,\rH,\rshort,\rcore,\rNN,\rEES)}(\br_f)&=&\frac{e^2}{2}\sum_{f'}w_{f'}\sum_{<K \neq J>_\rNN}n_{K}^{(\rP\ l,\rEES)}(\br_f) \frac{\p \phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rNN)}(\br_f,\br_{f'})}{\p \RJb} \nonumber\\ \\
+\ReE \eqref{ReEFJb:sRPAW1SHshortAa}\ \phi_{JK}^{(\rcore,\rcore,\rH,\rshort,\rNN)}(\br_f,\br_{f'}) \nonumber \\
+\label{gr:FRcorecoreHshort}
 F_{J\beta}^{(R,\rcore,\rcore,\rH,\rshort,\rB,\rEES)}(\br_f)&=& 2\sum_{l=1}^2F_{J\beta}^{(R,\rP\ l,\rcore,\rH,\rshort,\rcore,\rNN,\rEES)}(\br_f)
 \end{eqnarray}
 
 \underline{Core-tot Hartree long energy:}
 \begin{eqnarray}
-F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,1,a,\rEES)}(\hs) &=& \sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\br_f) \sum_{\bk} \frac{\p \Mp(\bu_{Jf}-\hat \bs)}{\p \RJb} \delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber\\ 
+\label{FJb:sRPAW1totHlonga}
+F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,a,\rEES)}(\hs) &=& \sum_f w_f \Delta p(\br_f) \phi_J^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\br_f) \sum_{\bk} \frac{\p \Mp(\bu_{Jf}-\hat \bs)}{\p \RJb} \delta_{\hat \bs,\bl_{Jf}-\bk} \nonumber\\ 
 && \hspace*{2.5in} \hsinJp 
 \end{eqnarray}
 
@@ -4673,7 +4718,7 @@ F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,1,a,\rEES)}(\hs) &=& \sum_f w_f \Delta p(
 &=& \frac{\p E^{(\rP\ 1,\rtot,\rH,\rlong,a,\rEES)}}{\p \RJb} + \frac{\p E^{(\rP\ 1,\rtot,\rH,\rlong,b,\rEES)}}{\p \RJb} + \frac{\p E^{(\rP\ 1,\rtot,\rH,\rlong,c,\rEES)}}{\p \RJb}\nonumber \\
 &&+ \frac{\p E^{(\rP\ 2,\rtot,\rH,\rlong,\rEES)}}{\p \RJb}\\
 \label{gr:dEHlong1adR}
-\frac{\p E^{(\rP\ 1,\rtot,\rH,\rlong,a,\rEES)}}{\p \RJb}&=&\sum_{\hsJp}^{\pzp} \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right) F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,1,a,\rEES)}(\hs) \\
+\frac{\p E^{(\rP\ 1,\rtot,\rH,\rlong,a,\rEES)}}{\p \RJb}&=&\sum_{\hsJp}^{\pzp} \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right) F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,a,\rEES)}(\hs) \\
 \label{gr:dEHlong1bdR}
 \frac{\p E^{(\rP\ 1,\rtot,\rH,\rlong,b,\rEES)}}{\p \RJb}
 &=& \sum_{\hsJp}^{\pzp} \phi_J^{(\rP\ 1,\rtot,\rH,\rlong,\rA,\rEES)}(\hs)F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \\
@@ -4689,7 +4734,7 @@ F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,1,a,\rEES)}(\hs) &=& \sum_f w_f \Delta p(
 
 \newpage
 \section{Grouping of ion forces}\label{App:F}
-We will label these terms when they appear as $\ReRG$.\\
+We will label these terms when they appear later in this document as $\ReRG$.\\
 
 Every ion force arises from 5 sources only:
 \begin{equation}\label{eq:groupdEdRgen}
@@ -4726,11 +4771,11 @@ In this group, we have
 A_{J\beta}^{(\Psi,0,\rEES)} = 
  \sum_{\hsJpzr}^{p^3} \left\{ \right. &&  \nonumber \\
 && \left. \sum_I \left[\left(\frac{\p Z_{IJ}^{(\rS,\rEES)}}{\p \RJb} Z_{IJ}^{(\rKE,\rEES)*} +\frac{\p Z_{IJ}^{(\rKE,\rEES)}}{\p \RJb}Z_{IJ}^{(\rS,\rEES)*}\right) + \rcc \right] \fr \eqref{gr:dEKEdR} \right. \\
-&+& \left. P^{(\rKE)}\hspace*{1in} \frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \fr \eqref{gr:dEKEdR} \right. \\
-&+& \left. \phi_J^{(\rP\ 2,\rlo,\rshort)}\hspace*{0.4in} \frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \fr \eqref{gr:dElocshosrt2AdR} \right. \\
-&+& \left. \phi_J^{(\rP\ 2,\rxc,\rA,\rEES)}\hspace*{0.4in}\frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \fr \eqref{gr:dExc2AdR} \right. \\
-&+& \left. \phi_J^{(\rP\ 2,\rS,\rH,\rshort,\rA,\rEES)}\frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \fr \eqref{gr:dEHshortS2AdR} \right. \\
-&+& \left. \phi_J^{(\rP\ 2,\rcore,\rH,\rshort,\rEES)}\frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \fr \eqref{gr:dEHshortcore2AdR} \right. \\
+&+& \left. P^{(\rKE)}\hspace*{1in} \frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \hspace*{1.65in}\fr \eqref{gr:dEKEdR} \right. \\
+&+& \left. \phi_J^{(\rP\ 2,\rlo,\rshort)}\hspace*{0.4in} \frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \hspace*{1.65in} \fr \eqref{gr:dElocshosrt2AdR} \right. \\
+&+& \left. \phi_J^{(\rP\ 2,\rxc,\rA,\rEES)}\hspace*{0.4in}\frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \hspace*{1.6in}\fr \eqref{gr:dExc2AdR} \right. \\
+&+& \left. \phi_J^{(\rP\ 2,\rS,\rH,\rshort,\rA,\rEES)}\frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \hspace*{1.65in}\fr \eqref{gr:dEHshortS2AdR} \right. \\
+&+& \left. \phi_J^{(\rP\ 2,\rcore,\rH,\rshort,\rEES)}\frac{\p Z_{J}^{(\rS,2,\rEES)}}{\p \RJb} \hspace*{1.62in}\fr \eqref{gr:dEHshortcore2AdR} \right. \\
 \left. \right\} &&
 \end{eqnarray}
 
@@ -4748,6 +4793,19 @@ where
 \end{split}
 \end{equation}
 
+and
+\begin{enumerate}
+\item \ReR $\frac{\p Z_{IJ}^{(\rS,\rEES)}}{\p \RJb}$ is defined in Eq.\eqref{gr:dZSdR}.
+\item \ReR $\frac{\p Z_{IJ}^{(\rKE,\rEES)}}{\p \RJb}$ is defined in Eq.\eqref{gr:dZKEdR}.
+\item \ReR $\frac{\p Z_{IJ}^{(\rS,2,\rEES)}}{\p \RJb}$ is defined in Eq.\eqref{gr:dZS2dR}.
+\item \ReP $P^{(\rKE)}$ is defined in Eq.\eqref{terms:pre}.
+\item \ReW $\phi_J^{(\rP\ 2,\rlo,\rshort)}$ is defined in Eq.\eqref{phi:PAW2locshort}.
+\item \ReW $\phi_J^{(\rP\ 2,\rxc,\rA,\rEES)}$ is defined in Eq.\eqref{phi:PAW2xcA}.
+\item \ReW $\phi_J^{(\rP\ 2,\rS,\rH,\rshort,\rA,\rEES)}$ is defined in Eq.\eqref{phi:PAW2SHshortA}.
+\item \ReW $\phi_J^{(\rP\ 2,\rcore,\rH,\rshort,\rEES)}$ is defined in Eq.\eqref{phi:PAW2coreHshort}.
+\end{enumerate}
+
+
 
 \subsection{The $A_{J\beta}^{(\Psi,\zeta_\Psi,\rEES)}$ terms}
 
@@ -4757,16 +4815,18 @@ In this group, we have
 \begin{eqnarray}
 A_{J\beta}^{(\Psi,\zeta_\Psi,\rEES)} = 
  \sum_{\hsJp}^{\pzp} \left\{ \right. &&  \nonumber \\
-&&\left. \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right)\hspace*{0.4in} F_{J\beta}^{(R,\rP\ 1,\rlo,\rshort,\rA,a,\rEES)}(\hs) \fr \eqref{gr:dElocshosrt1AadR} \right. \\
-&+& \left.  \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc \right)\hspace*{0.4in} F_{J\beta}^{(R,\rP\ 1,\rxc,\rA,a,\rEES)}(\hs) \fr \eqref{gr:dExc1AadR}\right.\\
-&+& \left.  \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right)\hspace*{0.4in} F_{J\beta}^{(R,\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs) \fr \eqref{gr:dEHshortS1AadR}\right.\\
+&&\left. \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right)\hspace*{0.4in} F_{J\beta}^{(R,\rP\ 1,\rlo,\rshort,\rA,a,\rEES)}(\hs) \hspace*{0.18in}\fr \eqref{gr:dElocshosrt1AadR} \right. \\
+&+& \left. \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right) \hspace*{0.4in} F_{J\beta}^{(R,\rP\ 1,\rlo,\rlong,\rA,a,\rEES)}(\hs) \hspace*{0.18in} \fr \eqref{gr:dEloclong1AadR}\right.\\
+&+& \left.  \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc \right)\hspace*{0.4in} F_{J\beta}^{(R,\rP\ 1,\rxc,\rA,a,\rEES)}(\hs) \hspace*{0.45in} \fr \eqref{gr:dExc1AadR}\right.\\
+&+& \left.  \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right)\hspace*{0.4in} F_{J\beta}^{(R,\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs) \hspace*{0.1in} \fr \eqref{gr:dEHshortS1AadR}\right.\\
 &+& \left.  \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right) \hspace*{0.4in}F_{J\beta}^{(R,\rP\ 1,\rcore,\rH,\rshort,\rA,a,\rEES)}(\hs) \fr \eqref{gr:dEHshortcore1AadR}\right.\\
-&+& \left.  \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right) \hspace*{0.4in}F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,1,a,\rEES)}(\hs) \fr \eqref{gr:dEHlong1adR}\right.\\
-&+& \left.\phi_J^{(\rP\ 1,\rlo,\rshort,\rEES)}(\hs) \hspace*{0.21in}F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \fr \eqref{gr:dElocshosrt1AbdR}\right.\\
-&+& \left.  \phi_J^{(\rP\ 1,\rxc,\rA,\rEES)}(\hs)\hspace*{0.4in}F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \fr \eqref{gr:dExc1AbdR}\right.\\
-&+& \left.  \phi_J^{(\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs)F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \fr \eqref{gr:dEHshortS1AbdR}\right.\\
-&+& \left.  \phi_J^{(\rP\ 1,\rcore,\rH,\rshort,\rEES)}(\hs)\hspace*{0.05in}F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \fr \eqref{gr:dEHshortcore1AbdR}\right.\\
-&+& \left.  \phi_J^{(\rP\ 1,\rtot,\rH,\rlong,\rA,\rEES)}(\hs)\hspace*{0.05in}F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs)  \fr \eqref{gr:dEHlong1bdR} \right. \\
+&+& \left.  \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right) \hspace*{0.4in}F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,a,\rEES)}(\hs) \hspace*{0.2in} \fr \eqref{gr:dEHlong1adR}\right.\\
+&+& \left.\phi_J^{(\rP\ 1,\rlo,\rshort,\rEES)}(\hs) \hspace*{0.21in}F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \hspace*{0.9in}\fr \eqref{gr:dElocshosrt1AbdR}\right.\\
+&+& \left.\phi_J^{(\rP\ 1,\rlo,\rlong,\rEES)}(\hs) \hspace*{0.24in}F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \hspace*{0.9in}\fr \eqref{gr:dEloclong1AbdR}\right.\\
+&+& \left.  \phi_J^{(\rP\ 1,\rxc,\rA,\rEES)}(\hs)\hspace*{0.4in}F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \hspace*{0.9in}\fr \eqref{gr:dExc1AbdR}\right.\\
+&+& \left.  \phi_J^{(\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs)F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \hspace*{0.9in}\fr \eqref{gr:dEHshortS1AbdR}\right.\\
+&+& \left.  \phi_J^{(\rP\ 1,\rcore,\rH,\rshort,\rEES)}(\hs)\hspace*{0.05in}F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \hspace*{0.9in} \fr \eqref{gr:dEHshortcore1AbdR}\right.\\
+&+& \left.  \phi_J^{(\rP\ 1,\rtot,\rH,\rlong,\rA,\rEES)}(\hs)\hspace*{0.05in}F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs)  \hspace*{0.9in} \fr \eqref{gr:dEHlong1bdR} \right. \\
 \left. \right\} &&
 \end{eqnarray}
 
@@ -4775,40 +4835,50 @@ Simplifying, we find
 A_{J\beta}^{(\Psi,\zeta_\Psi,\rEES)} &=& \sum_{\hsJp}^{\pzp} \left\{ \left(\Psi_J^{(\rS,Z,D)}(\hat \bs)+ \rcc\right)F_{J\beta}^{(R,\rgr,\rP\ 1,\rEES)}(\hs) + \phi_J^{(\rgr,\rP\ 1,\rEES)}(\hs)F_{J\beta}^{(R,\rS,Z,\Psi,\rEES)}(\hs) \right\}\nonumber\\
 \end{eqnarray}
 where
-\begin{equation}
+\begin{equation}\label{FJb:sRgrPAW1}
 \begin{split}
 F_{J\beta}^{(R,\rgr,\rP\ 1,\rEES)}(\hs) 
-&= F_{J\beta}^{(R,\rP\ 1,\rlo,\rshort,\rA,a,\rEES)}(\hs) 
-+ F_{J\beta}^{(R,\rP\ 1,\rxc,\rA,a,\rEES)}(\hs)\\
-&+ F_{J\beta}^{(R,\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs)
-+ F_{J\beta}^{(R,\rP\ 1,\rcore,\rH,\rshort,\rA,a,\rEES)}(\hs)\\
-&+ F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,1,a,\rEES)}(\hs)\\
+&= F_{J\beta}^{(R,\rP\ 1,\rlo,\rshort,\rA,a,\rEES)}(\hs) + F_{J\beta}^{(R,\rP\ 1,\rlo,\rlong,\rA,a,\rEES)}(\hs) \\
+&+ F_{J\beta}^{(R,\rP\ 1,\rxc,\rA,a,\rEES)}(\hs) + F_{J\beta}^{(R,\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs) \\
+&+ F_{J\beta}^{(R,\rP\ 1,\rcore,\rH,\rshort,\rA,a,\rEES)}(\hs) + F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,a,\rEES)}(\hs)\\
 \end{split}
 \end{equation}
 and
-\begin{equation}
+\begin{equation}\label{phi:sgrPAW1}
 \begin{split}
 \phi_J^{(\rgr,\rP\ 1,\rEES)}(\hs) 
-&= \phi_J^{(\rP\ 1,\rlo,\rshort,\rEES)}(\hs)
-+ \phi_J^{(\rP\ 1,\rxc,\rA,\rEES)}(\hs) \\
-&+ \phi_J^{(\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs)
-+  \phi_J^{(\rP\ 1,\rcore,\rH,\rshort,\rEES)}(\hs)\\
-&+ \phi_J^{(\rP\ 1,\rtot,\rH,\rlong,\rA,\rEES)}(\hs)\\
+&= \phi_J^{(\rP\ 1,\rlo,\rshort,\rEES)}(\hs) + \phi_J^{(\rP\ 1,\rlo,\rlong,\rEES)}(\hs) \\
+&+ \phi_J^{(\rP\ 1,\rxc,\rA,\rEES)}(\hs) + \phi_J^{(\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs) \\
+&+  \phi_J^{(\rP\ 1,\rcore,\rH,\rshort,\rEES)}(\hs) + \phi_J^{(\rP\ 1,\rtot,\rH,\rlong,\rA,\rEES)}(\hs)\\
 \end{split}
 \end{equation}
 
+List of terms in Eq.\eqref{FJb:sRgrPAW1} and Eq.\eqref{phi:sgrPAW1}:
+\begin{enumerate}
+\item \ReR $F_{J\beta}^{(R,\rP\ 1,\rlo,\rshort,\rA,a,\rEES)}(\hs)$*** is defined in Eq.\eqref{FJb:sRPAW1locshortAa}.
+\item \ReR $F_{J\beta}^{(R,\rP\ 1,\rlo,\rlong,\rA,a,\rEES)}(\hs)$*** is defined in Eq.\eqref{FJb:sRPAW1loclongAa}.
+\item \ReR $F_{J\beta}^{(R,\rP\ 1,\rxc,\rA,a,\rEES)}(\hs)$ is defined in Eq.\eqref{FJb:sRPAW1xcAa}.
+\item \ReR $F_{J\beta}^{(R,\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs)$*** is defined in Eq.\eqref{FJb:sRPAW1SHshortAa}.
+\item \ReR $F_{J\beta}^{(R,\rP\ 1,\rcore,\rH,\rshort,\rA,a,\rEES)}(\hs)$*** is defined in Eq.\eqref{FJb:sRPAW1coreHshortAa}.
+\item \ReR $F_{J\beta}^{(R,\rP\ 1,\rtot,\rH,\rlong,a,\rEES)}(\hs)$*** is defined in Eq.\eqref{FJb:sRPAW1totHlonga}.
+\item \ReW $\phi_J^{(\rP\ 1,\rlo,\rshort,\rEES)}(\hs)$*** is defined in Eq.\eqref{phi:phiSloc}.
+\item \ReW $\phi_J^{(\rP\ 1,\rlo,\rlong,\rEES)}(\hs)$*** is defined in Eq.\eqref{phi:flongSD}.
+\item \ReW $\phi_J^{(\rP\ 1,\rxc,\rA,\rEES)}(\hs)$ is defined in Eq.\eqref{phi:sPAW1xcA}.
+\item \ReW $\phi_J^{(\rP\ 1,\rS,\rH,\rshort,\rA,a,\rEES)}(\hs)$*** is defined in Eq.\eqref{phi:sPAW1SHshortAa}.
+\item \ReW $\phi_J^{(\rP\ 1,\rcore,\rH,\rshort,\rEES)}(\hs)$*** is defined in Eq.\eqref{phi:sPAW1coreHshort}.
+\item \ReW $\phi_J^{(\rP\ 1,\rtot,\rH,\rlong,\rA,\rEES)}(\hs)$*** is defined in Eq.\eqref{phi:sPAW1titHlongA}.
+\end{enumerate}
 
 
-\vs
 \subsection{The $A_{J\beta}^{(n,0,\rEES)}$ terms}
 
 In this group, we have
 
 \begin{eqnarray}
-A_{J\beta}^{(n,0,\rEES)} = 
+A_{J\beta}^{(n,0,\rEES)} = Q_J 
  \sum_{\hsJnzr}^{p^3} \left\{ \right. &&  \nonumber \\
-&&\left. Q_J \left[ \sum_{\bk} \frac{\p M_p^{(3,n)}(\bu_{J}-\hat \bs)}{\p \RJb} \phi^{(R,\rS,\rlo,\rcomb,\chi,D)}(\hs)\right]\delta_{\hs,\bl_J-\bk} \fr \eqref{gr:dElocSEESdR} \right. \\
-&+& \left.  Q_J \sum_{\bk} \phi^{(R,\rcore,\rlo,\rlong,\chi,D,\rB,\rEES)}(\hs) \frac{\p \Mn (\bu_{J}-\hat \bs)}{\p \RJb} \delta_{\hs,\bl_J-\bk}  \fr \eqref{gr:dEloclongBdR} \right. \\
+&&\left. \left[ \sum_{\bk} \frac{\p M_p^{(3,n)}(\bu_{J}-\hat \bs)}{\p \RJb} \phi^{(R,\rS,\rlo,\rcomb,\chi,D)}(\hs)\right]\delta_{\hs,\bl_J-\bk} \hspace*{0.25in}\fr \eqref{gr:dElocSEESdR} \right. \\
+&+& \left.  \sum_{\bk} \phi^{(R,\rcore,\rlo,\rlong,\chi,D,\rB,\rEES)}(\hs) \frac{\p \Mn (\bu_{J}-\hat \bs)}{\p \RJb} \delta_{\hs,\bl_J-\bk}  \fr \eqref{gr:dEloclongBdR} \right. \\
 \left. \right\} &&
 \end{eqnarray}
 
@@ -4823,6 +4893,13 @@ where
 \phi^{(R,\rgr,\rlo,\rEES)}(\hs) = \phi^{(R,\rS,\rlo,\rcomb,\chi,D)}(\hs) + \phi^{(R,\rcore,\rlo,\rlong,\chi,D,\rB,\rEES)}(\hs)
 \end{equation}
 
+and
+\begin{enumerate}
+\item \ReR $\phi^{(R,\rS,\rlo,\rcomb,\chi,D)}(\hs)$ is defined in Eq.\eqref{phi:sRSloc}.
+\item \ReR $\phi^{(R,\rcore,\rlo,\rlong,\chi,D,\rB,\rEES)}(\hs)$ is defined in Eq.\eqref{phi:sRcoreloclongB}.
+\end{enumerate}
+
+
 
 \subsection{The $A_{J\beta}^{(n,\zeta_n,\rEES)}$ terms}
 
@@ -4831,11 +4908,11 @@ In this group, we have
 \begin{eqnarray}
 A_{J\beta}^{(n,\zeta_n,\rEES)} = 
  \sum_{\hsJn}^{\pzn} \left\{ \right. &&  \nonumber \\
-&&\left. n^{(\rS,D)}(\hat \bs) F_{J\beta}^{(R,\rcore,\rxc,\rB,\rEES)}(\hs) \fr \eqref{gr:dExcBdR} \right. \\
-&+& \left.  \phi^{(\rcore,\rS,\rH,\rshort,\chi,D)}(\hs)F_{J\beta}^{(R,\rcore,\rS,\rH,\rshort,\rB,\rEES)}(\hs) \fr \eqref{gr:dEHshortSBdR} \right.\\
-&+& \left. \phi^{(\rcore,\rlo,\rlong,\chi,S,D,\rEES)}(\hs)  F_{J\beta}^{(R,\rP\ 1,\rEES)}(\hs) \fr \eqref{gr:dEloclong1AcdR}  \right. \\
-&+& \left.  \phi^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\hs) F_{J\beta}^{(R,\rP\ 1,\rEES)}(\hs) \fr \eqref{gr:dEHlong1cdR} \right.\\
-&+& \left.  \phi^{(\rcore,\rlo,\rlong,\chi,S,D,\rEES)}(\hs) \left[F_{J\beta}^{(R,\rS,Z,2,\rEES)}(\hs)+ F_{J\beta}^{(R,\rP\ 2,\rEES)}(\hs)\right] \fr \eqref{gr:dEloclong2AdR}\right.\\
+&&\left. n^{(\rS,D)}(\hat \bs) F_{J\beta}^{(R,\rcore,\rxc,\rB,\rEES)}(\hs) \hspace*{2.3in}\fr \eqref{gr:dExcBdR} \right. \\
+&+& \left.  \phi^{(\rcore,\rS,\rH,\rshort,\chi,D)}(\hs)F_{J\beta}^{(R,\rcore,\rS,\rH,\rshort,\rB,\rEES)}(\hs) \hspace*{1.2in} \fr \eqref{gr:dEHshortSBdR} \right.\\
+&+& \left. \phi^{(\rcore,\rlo,\rlong,\chi,S,D,\rEES)}(\hs)  F_{J\beta}^{(R,\rP\ 1,\rEES)}(\hs) \hspace*{1.4in} \fr \eqref{gr:dEloclong1AcdR}  \right. \\
+&+& \left.  \phi^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\hs) F_{J\beta}^{(R,\rP\ 1,\rEES)}(\hs) \hspace*{1.3in}\fr \eqref{gr:dEHlong1cdR} \right.\\
+&+& \left.  \phi^{(\rcore,\rlo,\rlong,\chi,S,D,\rEES)}(\hs) \left[F_{J\beta}^{(R,\rS,Z,2,\rEES)}(\hs)+ F_{J\beta}^{(R,\rP\ 2,\rEES)}(\hs)\right] \hspace*{0.1in} \fr \eqref{gr:dEloclong2AdR}\right.\\
 &+& \left.  \phi^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\hs) \left[F_{J\beta}^{(R,\rS,Z,2,\rEES)}(\hs)+ F_{J\beta}^{(R,\rP\ 2,\rEES)}(\hs)\right] \fr \eqref{gr:dEHlong2EESdR} \right. \\
 \left. \right\} &&
 \end{eqnarray}
@@ -4846,8 +4923,8 @@ Simplifying, we find
 \begin{split}
 A_{J\beta}^{(n,\zeta_n,\rEES)} &= 
  \sum_{\hsJn}^{\pzn} \left\{  n^{(\rS,D)}(\hat \bs) F_{J\beta}^{(R,\rcore,\rxc,\rB,\rEES)}(\hs) \right. \\
-&+ \left.   \phi^{(\rcore,\rS,\rH,\rshort,\chi,D)}(\hs)F_{J\beta}^{(R,\rcore,\rS,\rH,\rshort,\rB,\rEES)}(\hs) \right.\\
-&+ \left.  \phi^{(R,\rgr,\rlong,\rEES)}(\hs) F_{J\beta}^{(R,\rgr,\rEES)}(\hs) \right\} \\
+&\hspace*{1in}+ \left.   \phi^{(\rcore,\rS,\rH,\rshort,\chi,D)}(\hs)F_{J\beta}^{(R,\rcore,\rS,\rH,\rshort,\rB,\rEES)}(\hs) \right.\\
+&\hspace*{1in}+ \left.  \phi^{(R,\rgr,\rlong,\rEES)}(\hs) F_{J\beta}^{(R,\rgr,\rEES)}(\hs) \right\} \\
 \end{split}
 \end{equation}
 
@@ -4861,22 +4938,33 @@ F_{J\beta}^{(R,\rgr,\rEES)}(\hs)
 \end{split}
 \end{equation}
 
+and
+\begin{enumerate}
+\item \ReE $n^{(\rS,D)}(\hat \bs)$ is defined in Eq.\eqref{gr:nSDs}.
+\item \ReR $F_{J\beta}^{(R,\rcore,\rxc,\rB,\rEES)}(\hs)$ is defined in Eq.\eqref{gr:FRxcB}.
+\item \ReE $\phi^{(\rcore,\rS,\rH,\rshort,\chi,D)}(\hs)$ is defined in Eq.\eqref{phi:scoreSHshortchiD}.
+\item \ReR $F_{J\beta}^{(R,\rcore,\rS,\rH,\rshort,\rB,\rEES)}(\hs)$ is defined in Eq.\eqref{gr:FRcoreSHshortB}.
+\item \ReW $\phi^{(\rcore,\rlo,\rlong,\chi,S,D,\rEES)}(\hs)$ is defined in Eq.\eqref{phi:slongSD}.
+\item \ReW $\phi^{(\rcore,\rtot,\rH,\rlong,\chi,D,\rA,\rEES)}(\hs)$ is defined in Eq.\eqref{phi:scoretotHlong}.
+\item \ReR $F_{J\beta}^{(R,\rP\ 1,\rEES)}(\hs)$ is defined in Eq.\eqref{gr:FRPAW1}.
+\item \ReR $F_{J\beta}^{(R,\rS,Z,2,\rEES)}(\hs)$ is defined in Eq.\eqref{gr:FRSZ2}.
+\item \ReR $F_{J\beta}^{(R,\rP\ 2,\rEES)}(\hs)$ is defined in Eq.\eqref{gr:FRPAW2}.
+\end{enumerate}
+
+
 
 \subsection{The $A_{J\beta}^{(f)}$ terms}
 
 In this group, we have
-
-
 \begin{eqnarray}
 A_{J\beta}^{(f)} = 
  \sum_f w_f \left\{ \right. &&  \nonumber \\
-&&\left. - n_{J}^{(\rcore,\rEES)}(\br_f) \frac{\p \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f)}{\p \RJb} \fr \eqref{gr:dElocshortBdR} \right. \\
+&-&\left.  n_{J}^{(\rcore,\rEES)}(\br_f) \frac{\p \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f)}{\p \RJb} \hspace*{0.35in} \fr \eqref{gr:dElocshortBdR} \right. \\
 &+& \left.  n_{J}^{(\rcore,\rEES)}(\br_f) F_{J\beta}^{(R,\rcore,\rcore,\rH,\rshort,\rB,\rEES)}(\br_f) \fr \eqref{gr:dEHshortcoreBdR} \right. \\
 \left. \right\} &&
 \end{eqnarray}
 
 Simplifying, we find
-
 \begin{eqnarray}\label{gr:AJbf}
 A_{J\beta}^{(f)} &=& \sum_f w_f \left[  n_{J}^{(\rcore,\rEES)}(\br_f) F_{J\beta}^{(R,\rgr,\rcore,\rEES)}(\br_f) \right]
 \end{eqnarray}
@@ -4885,6 +4973,16 @@ where
 \begin{equation}
 F_{J\beta}^{(R,\rgr,\rcore,\rEES)}(\br_f) = F_{J\beta}^{(R,\rcore,\rcore,\rH,\rshort,\rB,\rEES)}(\br_f) - \frac{\p \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f)}{\p \RJb}
 \end{equation}
+
+and
+\begin{enumerate}
+\item \ReR $\frac{\p \phi_J^{(\rcore,\rlo,\rshort,\rNN)}(\br_f)}{\p \RJb}$ is defined in Eq.\eqref{dphidR:flocshortNN}.
+\item \ReR $F_{J\beta}^{(R,\rcore,\rcore,\rH,\rshort,\rB,\rEES)}(\br_f)$ is defined in Eq.\eqref{gr:FRcorecoreHshort}.
+\item \ReE $n_{J}^{(\rcore,\rEES)}(\br_f)$ is defined in Eq.\eqref{gr:ncorerf}.
+\end{enumerate}
+
+
+
 
 \subsection{Summary of the ion forces}
 Connecting back to Eq.\eqref{eq:groupdEdRgen}, we have the final result of ion forces
@@ -4895,10 +4993,10 @@ Connecting back to Eq.\eqref{eq:groupdEdRgen}, we have the final result of ion f
 where
 \begin{enumerate}
 \item \ReRG $A_{J\beta}^{(\Psi,0,\rEES)}$ is defined in Eq.\eqref{gr:AJb1}.
-\item \ReRG $A_{J\beta}^{(\Psi,\zeta_\Psi,\rEES)}$ is defined in  Eq.\eqref{gr:AJb2}
-\item \ReRG $A_{J\beta}^{(n,0,\rEES)}$ is defined in Eq.\eqref{gr:AJb3}
-\item \ReRG $A_{J\beta}^{(n,\zeta_n,\rEES)}$ is defined in Eq.\eqref{gr:AJb4}
-\item \ReRG $A_{J\beta}^{(f)}$ is defined in Eq.\eqref{gr:AJbf}
+\item \ReRG $A_{J\beta}^{(\Psi,\zeta_\Psi,\rEES)}$ is defined in  Eq.\eqref{gr:AJb2}.
+\item \ReRG $A_{J\beta}^{(n,0,\rEES)}$ is defined in Eq.\eqref{gr:AJb3}.
+\item \ReRG $A_{J\beta}^{(n,\zeta_n,\rEES)}$ is defined in Eq.\eqref{gr:AJb4}.
+\item \ReRG $A_{J\beta}^{(f)}$ is defined in Eq.\eqref{gr:AJbf}.
 \end{enumerate}
 
 From the form of the grouped interaction, the scaling is $3 N \pz\ (\zeta = 0/\zeta_\Psi/\zeta_n) \sim N$ for the sum over the grid around $J$ and $3 N N_f \sim N$ for last term $A_{J\beta}^{(f)}$.
